@@ -41,4 +41,4 @@ const DailyWorkoutSchema = new mongoose.Schema({
   }]
 });
 
-module.exports = mongoose.model('DailyWorkout', DailyWorkoutSchema);
+module.exports = mongoose.model('Workout', DailyWorkoutSchema);
