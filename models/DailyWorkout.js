@@ -1,3 +1,5 @@
+//this model will allow data entered into the exercise from to be stored in the database >> the front end form is set up so user selects type of exercise they will engage in and then they will be presented with a form that only allows them to fill out info related to that type of exercise.
+
 const mongoose = require('mongoose');
 
 const DailyWorkoutSchema = new mongoose.Schema({
@@ -9,19 +11,16 @@ const DailyWorkoutSchema = new mongoose.Schema({
     type: {
     type: String,
     required: true,
-    trim: true
     },
 
     name: {
       type: String,
       required: true,
-      trim: true
     },
 
     duration: {
       type: Number,
-      required: true,
-      trim: true      
+      required: true,   
     },
 
     weight: {

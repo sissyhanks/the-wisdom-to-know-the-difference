@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
+//an async function because mongoose returns promises 
 const connectDB = async () => {
   try {
+    //try to connect with the connection string from atlas in env filed
     const conn = await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
     })

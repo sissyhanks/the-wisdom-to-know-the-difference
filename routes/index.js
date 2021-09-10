@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const htmlRoutes = require('./html');
 
-const Story = require ('../models/index');
+// const DailyWorkout = require ('../models/index');
 
+router.use('/', htmlRoutes);
 
 
 module.exports = router;
