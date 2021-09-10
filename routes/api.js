@@ -38,10 +38,12 @@ router.post("/workouts", ({body}, res) => {
     });
 });
 
-router.put("/workouts/:id", ({body}, res) => {
-  db.Workout.create(body)
-    .then(data => {
-      res.json(data);
+router.put("/workouts/:id", (req, res) => {
+  db.Workout.findByIdAndUpdate(
+    { _id: req.params.id }, { exercises: req.body }
+  )
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
     })
     .catch(err => {
       res.json(err);
