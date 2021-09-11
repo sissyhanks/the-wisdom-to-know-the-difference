@@ -3,6 +3,8 @@ const router = express.Router();
 const path = require("path");
 
 
+
+
 //this route will open the exercise html page 
 //Get /exercise
 router.get('/exercise', (req, res) => {
@@ -12,7 +14,7 @@ router.get('/exercise', (req, res) => {
 // this route takes user to dashboard 
 //GET /stats
 router.get('/stats', (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/stats.html"))
+  res.sendFile(path.join(__dirname, "../public/stats.html"));
 });
 
 

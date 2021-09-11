@@ -18,11 +18,6 @@ const DailyWorkoutSchema = new mongoose.Schema({
       required: true,
     },
 
-    duration: {
-      type: Number,
-      required: true,   
-    },
-
     weight: {
       type: Number,  
     },
@@ -37,8 +32,13 @@ const DailyWorkoutSchema = new mongoose.Schema({
 
     distance: {
       type: Number,
+    },
+
+    duration: {
+      type: Number,
     }
   }]
+  
 });
 
 const Workout = mongoose.model('Workout', DailyWorkoutSchema);

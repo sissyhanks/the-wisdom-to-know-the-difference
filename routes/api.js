@@ -2,14 +2,25 @@ const express = require('express');
 const router = express.Router();
 const path = require("path");
 
-const db = require('../models')
+const db = require('../models/index')
 
 //process add stories
 //post api/workouts
 
 
 router.get("/workouts", (req, res) => {
-  db.Workout.find({})
+  db.Workout.aggregate([
+          {
+            $addFields: {
+              totalDuration: {
+                $sum: '$exercises.duration',
+              },
+              totalDistance: {
+                $sum: '$exercises.distance'
+              }
+            },
+          },
+        ])
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -19,7 +30,18 @@ router.get("/workouts", (req, res) => {
 });
 
 router.get("/workouts/range", (req, res) => {
-  db.Workout.find({})
+  db.Workout.aggregate([
+          {
+            $addFields: {
+              totalDuration: {
+                $sum: '$exercises.duration',
+              },
+              totalDistance: {
+                $sum: '$exercises.distance'
+              }
+            },
+          },
+        ])
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -28,8 +50,8 @@ router.get("/workouts/range", (req, res) => {
     });
 });
 
-router.post("/workouts", ({body}, res) => {
-  db.Workout.create(body)
+router.post("/workouts", (req, res) => {
+  db.Workout.create(req.body)
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })

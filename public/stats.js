@@ -1,3 +1,13 @@
+// const Workouts = require('../models/index')
+
+// Workouts.aggregate( [
+//       {
+//         $addFields: {
+//           totalTime: { $sum: "$duration" }
+//         }
+//       }
+//     ] );
+
 function calculateTotalWeight(data) {
   const totals = [];
 
@@ -16,6 +26,7 @@ function calculateTotalWeight(data) {
 }
 
 function populateChart(data) {
+   
   const durations = data.map(({ totalDuration }) => totalDuration);
   const pounds = calculateTotalWeight(data);
 
